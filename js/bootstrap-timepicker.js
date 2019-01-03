@@ -30,6 +30,7 @@
     this.template = options.template;
     this.appendWidgetTo = options.appendWidgetTo;
     this.showWidgetOnAddonClick = options.showWidgetOnAddonClick;
+    this.twoDigitHour = options.twoDigitHour;
     this.icons = options.icons;
     this.maxHours = options.maxHours;
     this.explicitMode = options.explicitMode; // If true 123 = 1:23, 12345 = 1:23:45, else invalid.
@@ -351,11 +352,16 @@
     },
 
     getTime: function() {
+      var hourTime = this.hour.toString();
       if (this.hour === '') {
         return '';
       }
+      if (this.hourTwoDigits && hourTime.length === 1) {
+        hourTime = '0' + hourTime;
+      }
 
-      return this.hour + ':' + (this.minute.toString().length === 1 ? '0' + this.minute : this.minute) + (this.showSeconds ? ':' + (this.second.toString().length === 1 ? '0' + this.second : this.second) : '') + (this.showMeridian ? ' ' + this.meridian : '');
+      //return hourTimethis.hour + ':' + (this.minute.toString().length === 1 ? '0' + this.minute : this.minute) + (this.showSeconds ? ':' + (this.second.toString().length === 1 ? '0' + this.second : this.second) : '') + (this.showMeridian ? ' ' + this.meridian : '');
+      return hourTime + ':' + (this.minute.toString().length === 1 ? '0' + this.minute : this.minute) + (this.showSeconds ? ':' + (this.second.toString().length === 1 ? '0' + this.second : this.second) : '') + (this.showMeridian ? ' ' + this.meridian : '');
     },
 
     hideWidget: function() {
@@ -1156,6 +1162,7 @@
     template: 'dropdown',
     appendWidgetTo: 'body',
     showWidgetOnAddonClick: true,
+    twoDigitHour: true,
     icons: {
       up: 'glyphicon glyphicon-chevron-up',
       down: 'glyphicon glyphicon-chevron-down'
