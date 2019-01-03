@@ -356,7 +356,7 @@
       if (this.hour === '') {
         return '';
       }
-      if (this.hourTwoDigits && hourTime.length === 1) {
+      if (this.twoDigitHour && hourTime.length === 1) {
         hourTime = '0' + hourTime;
       }
 
