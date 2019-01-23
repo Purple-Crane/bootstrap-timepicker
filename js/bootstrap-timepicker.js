@@ -1,9 +1,7 @@
 /*!
  * Timepicker Component for Twitter Bootstrap
  *
- * Copyright 2013 Joris de Wit and bootstrap-timepicker contributors
- *
- * Contributors https://github.com/jdewit/bootstrap-timepicker/graphs/contributors
+ * Forked from https://github.com/jdewit/bootstrap-timepicker
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -550,6 +548,9 @@
         } else if (this.hour === 12) {
           this.hour = 0;
         }
+      }
+      if(this.minute == "") {
+        this.minute = 0;
       }
       if (this.hour === this.maxHours - 1) {
         this.hour = 0;
