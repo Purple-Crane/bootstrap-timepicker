@@ -117,6 +117,9 @@
     },
 
     decrementHour: function() {
+      if(this.minute == "") {
+        this.minute = 0;
+      }
       if (this.showMeridian) {
         if (this.hour === 1) {
           this.hour = 12;
@@ -541,6 +544,9 @@
     },
 
     incrementHour: function() {
+      if(this.minute == "") {
+        this.minute = 0;
+      }
       if (this.showMeridian) {
         if (this.hour === 11) {
           this.hour++;
@@ -548,9 +554,6 @@
         } else if (this.hour === 12) {
           this.hour = 0;
         }
-      }
-      if(this.minute == "") {
-        this.minute = 0;
       }
       if (this.hour === this.maxHours - 1) {
         this.hour = 0;
